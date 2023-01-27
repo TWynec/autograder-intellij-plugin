@@ -1,4 +1,4 @@
-package src.main;
+package actions;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -11,8 +11,8 @@ import java.net.URL;
 
 public class FileUploader {
 
-    public static void main(String[] args) {
-        String filePath = "path/to/your/file.ext";
+    public void uploadFile(String filePath) {
+        //String filePath = "path/to/your/file.ext";
         String urlString = "http://your-server.com/upload.php";
 
         try {
