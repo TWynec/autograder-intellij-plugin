@@ -5,11 +5,19 @@ import com.intellij.openapi.ui.Messages;
 import org.jetbrains.annotations.NotNull;
 import javax.swing.JMenuBar;
 import javax.swing.JComponent;
-public class SubmitAction extends AnAction{
+import java.nio.file.FileSystems;
+import java.nio.file.Paths;
+import java.nio.file.Path;
 
+public class SubmitAction extends AnAction {
      @Override
-    public void actionPerformed(@NotNull AnActionEvent e){
-        Messages.showInfoMessage("Submit works","Info");
-    }
+    public void actionPerformed(@NotNull AnActionEvent e) {
+         Path currentRelativePath = Paths.get("FileUploader.java");
+         String s = currentRelativePath.toAbsolutePath().toString();
 
+         Messages.showInfoMessage(s,"Info");
+         FileUploader conn = new FileUploader();
+
+         conn.uploadFile(s);
+    }
 }
