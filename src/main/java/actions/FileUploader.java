@@ -13,7 +13,6 @@ import java.net.URL;
 public class FileUploader {
 
     public void uploadFile(String filePath) {
-        //String filePath = "path/to/your/file.ext";
         String urlString = "http://localhost/index.php";
 
         try {
@@ -21,7 +20,7 @@ public class FileUploader {
             URL url = new URL(urlString);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
-            System.out.println(connection.getResponseCode());
+            //System.out.println(connection.getResponseCode());
 
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);
@@ -39,7 +38,7 @@ public class FileUploader {
             request.writeBytes("Content-Disposition: form-data; name=\"file\"; filename=\"" + file.getName() + "\"\r\n");
             request.writeBytes("Content-Type: application/octet-stream\r\n\r\n");
 
-            // Write the file data to the request body
+            // Write the file
             int bytesRead;
             byte[] dataBuffer = new byte[1024];
             while ((bytesRead = fileInputStream.read(dataBuffer)) != -1) {
@@ -52,13 +51,20 @@ public class FileUploader {
             request.flush();
             request.close();
 
-            // Get the response from the server
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            // Get the response
+            BufferedReader reader = null;
+            if (100 <= connection.getResponseCode() && connection.getResponseCode() <= 399) {
+                reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            } else {
+                reader = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
+            }
+
+            //BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String response = reader.readLine();
             reader.close();
 
             // Print the response
-            System.out.println(response);
+            System.out.println("Response from server: " + response);
         } catch (IOException e) {
             e.printStackTrace();
         }
