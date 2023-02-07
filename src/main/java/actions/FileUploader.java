@@ -1,5 +1,6 @@
 package actions;
 
+import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -13,12 +14,15 @@ public class FileUploader {
 
     public void uploadFile(String filePath) {
         //String filePath = "path/to/your/file.ext";
-        String urlString = "http://your-server.com/upload.php";
+        String urlString = "http://localhost/index.php";
 
         try {
             // Open a connection to the server
             URL url = new URL(urlString);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+            System.out.println(connection.getResponseCode());
+
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);
 
