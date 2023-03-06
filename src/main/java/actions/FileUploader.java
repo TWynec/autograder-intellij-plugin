@@ -13,7 +13,7 @@ import java.net.URL;
 public class FileUploader {
 
     public void uploadFile(String filePath) {
-        String urlString = "http://localhost/index.php";
+        String urlString = "http://localhost/";
 
         try {
             URL url = new URL(urlString);

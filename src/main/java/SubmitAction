@@ -1,2 +1,0 @@
-import com.intellij.openai.actionSystem.AnAction;
-public class SubmitAction extends AnAction{
