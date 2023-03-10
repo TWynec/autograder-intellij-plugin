@@ -12,13 +12,24 @@ import org.jetbrains.annotations.NotNull;
 public class SubmitAction extends AnAction {
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
+        if (e == null) {
+            System.err.println("AnActionEvent is null");
+            return;
+        }
 
+        String filePath = null;
         VirtualFile virtualFile = e.getData(CommonDataKeys.VIRTUAL_FILE);
-        String filePath = virtualFile.getPath();
+        if (virtualFile != null) {
+            filePath = virtualFile.getPath();
+        } else {
+            System.err.println("virtualFile is null");
+        }
 
-        Messages.showInfoMessage(filePath, "Info");
+        int result = Messages.showYesNoDialog("Are you sure you are ready to submit?", "Warning", "Yes", "No", Messages.getQuestionIcon());
         FileUploader conn = new FileUploader();
+        if (result == 0) {
+            conn.uploadFile(filePath);
+        }
 
-        conn.uploadFile(filePath);
     }
 }

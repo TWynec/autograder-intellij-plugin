@@ -1,7 +1,6 @@
 package actions;
 
 
-import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -15,7 +14,7 @@ import java.net.URL;
 public class FileUploader {
 
     public void uploadFile(String filePath) {
-        String urlString = "http://localhost/index.php";
+        String urlString = "http://localhost/";
 
         try {
             URL url = new URL(urlString);
