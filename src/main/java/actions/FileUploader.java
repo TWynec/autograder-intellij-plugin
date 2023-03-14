@@ -13,12 +13,14 @@ import java.net.URL;
 public class FileUploader {
 
     public void uploadFile(String filePath) {
-        String urlString = "http://localhost/";
+        String urlString = "http://localhost/index.php";
+
 
         try {
             URL url = new URL(urlString);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
+            System.out.println(connection.getResponseCode());
+            /*
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);
 
@@ -58,6 +60,8 @@ public class FileUploader {
             } else {
                 System.out.println("POST request did not work.");
             }
+
+             */
         } catch (IOException e) {
             e.printStackTrace();
         }
