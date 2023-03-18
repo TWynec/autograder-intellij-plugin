@@ -1,5 +1,6 @@
 # autograder-intellij-plugin
 IntelliJ plugin for Eastern Washington University's Advancement Programming Exam. 
+Note: Main branch contains solution for uploading a single file, Folder branch contains partial solution for uploading a folder
 
 # TODO
 - Get student's name
