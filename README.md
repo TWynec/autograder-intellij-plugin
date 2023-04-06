@@ -7,7 +7,7 @@ Note: Main branch contains solution for uploading a single file, Folder branch c
 - Zip selected folder
 
 # Instructions
-- Create a plugin project in IntelliJ
+- Create an "IntelliJ Platform Plugin" project in IntelliJ
 - Pull and run this project
 - On the left hand side, in the filetree, select the folder you wish to upload
 - Go to tools > submit
