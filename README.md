@@ -10,4 +10,4 @@ Note: Main branch contains solution for uploading a single file, Folder branch c
 
 # Server
 - Apache 
-- The included index.php listens for a post request and performs operations when one is recieved.
+- The included index.php listens for a post request and performs operations when one is recieved. Replace this with your test cases.
