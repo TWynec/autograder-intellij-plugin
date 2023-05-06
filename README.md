@@ -4,7 +4,7 @@ Note: Main branch contains solution for uploading a single file, Folder branch c
 
 # Instructions
 - Create an "IntelliJ Platform Plugin" project in IntelliJ
-- Pull this project such that the .java files end up in this directory (you may need to right click and add directory manually):
+- Pull this project such that the .java files and the META-INF files end up in these directories (you may need to right click and add directory manually):
 
 ![image](https://user-images.githubusercontent.com/97702896/236650674-887f259c-9c4f-405b-be29-73a171d88881.png)
 
